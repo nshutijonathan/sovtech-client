@@ -1,5 +1,5 @@
 import React from "react";
-const Header = () => {
+const Header = ({ lengthValue }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark static-top">
       <div className="container">
@@ -14,7 +14,7 @@ const Header = () => {
             aria-hidden="true"
             style={{ fontSize: "15px" }}
           >
-            Sovtech
+            Peaples({lengthValue})
           </i>
         </a>
       </div>

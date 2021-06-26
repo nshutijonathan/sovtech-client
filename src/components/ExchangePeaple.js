@@ -1,15 +1,7 @@
 import React from "react";
 import { useState } from "react";
-
-import ReactDOM from "react-dom";
-import { render } from "react-dom";
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  useQuery,
-  gql,
-} from "@apollo/client";
+import { Card } from "react-bootstrap";
+import { useQuery, gql } from "@apollo/client";
 import Spinner from "./Spinner";
 import Paginate from "./Pagination";
 import Header from "./Header";
@@ -45,7 +37,6 @@ export const ExchangePeaple = () => {
   if (error) return <p>Error :(</p>;
 
   const handleDisplaySelected = (person) => {
-    console.log("person clicked", person);
     setSelectedPerson(person);
     setShowModal(true);
   };
@@ -56,7 +47,7 @@ export const ExchangePeaple = () => {
 
   return (
     <div className="container">
-      <Header />
+      <Header lengthValue={data.peaples.length} />
       <table className="table">
         <thead>
           <tr>
@@ -100,9 +91,65 @@ export const ExchangePeaple = () => {
         <Modal
           showModal={showModal}
           closeModal={closeModal}
-          modalTitle="Person Detail"
+          modalTitle="Person Details"
         >
-          <h2>Name:{selectedPerson.name}</h2>
+          <Card className="my-3 p-3 rounded">
+            <Card.Body>
+              <Card.Title as="div">
+                <strong>Name:{selectedPerson.name}</strong>
+              </Card.Title>
+            </Card.Body>
+            <Card.Body>
+              <Card.Title as="div">
+                <strong>Height:{selectedPerson.height}</strong>
+              </Card.Title>
+            </Card.Body>
+            <Card.Body>
+              <Card.Title as="div">
+                <strong>Mass:{selectedPerson.mass}</strong>
+              </Card.Title>
+            </Card.Body>
+            <Card.Body>
+              <Card.Title as="div">
+                <strong>HairColor:{selectedPerson.hair_color}</strong>
+              </Card.Title>
+            </Card.Body>
+            <Card.Body>
+              <Card.Title as="div">
+                <strong>SkinColor:{selectedPerson.skin_color}</strong>
+              </Card.Title>
+            </Card.Body>
+            <Card.Body>
+              <Card.Title as="div">
+                <strong>EyeColor:{selectedPerson.eye_color}</strong>
+              </Card.Title>
+            </Card.Body>
+            <Card.Body>
+              <Card.Title as="div">
+                <strong>BirthColor:{selectedPerson.birth_year}</strong>
+              </Card.Title>
+            </Card.Body>
+            <Card.Body>
+              <Card.Title as="div">
+                <strong>Gender:{selectedPerson.gender}</strong>
+              </Card.Title>
+            </Card.Body>
+            <Card.Body>
+              <Card.Title as="div">
+                <strong>Homeworld:{selectedPerson.homeworld}</strong>
+              </Card.Title>
+            </Card.Body>
+            <Card.Body>
+              <Card.Title as="div">
+                <strong>Created:{selectedPerson.created}</strong>
+              </Card.Title>
+            </Card.Body>
+            <Card.Body>
+              <Card.Title as="div">
+                <strong>Url:{selectedPerson.url}</strong>
+              </Card.Title>
+            </Card.Body>
+          </Card>
         </Modal>
       )}
     </div>
