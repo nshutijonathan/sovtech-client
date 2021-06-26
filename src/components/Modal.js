@@ -1,22 +1,14 @@
-import { Children } from "react";
-
 const Backdrop = ({ closeModal }) => (
   <div className="backdrop" onClick={() => closeModal()}></div>
 );
 
 const Modal = ({ closeModal, showModal, children, modalTitle }) => {
-  // console.log("showModal", showModal);
   return (
     <>
       {showModal && (
         <>
           <Backdrop closeModal={closeModal} />
-          <div
-            className="modal"
-            tabindex="-1"
-            role="dialog"
-            onClick={() => console.log("I am clickeds")}
-          >
+          <div className="modal" tabindex="-1" role="dialog">
             <div className="modal-dialog" role="document">
               <div className="modal-content">
                 <div className="modal-header">
